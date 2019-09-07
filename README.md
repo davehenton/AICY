@@ -14,5 +14,5 @@ We hope to be able to use 4096bit encoding soon.
 ***
 
 Full Credits:
-- Nick1st (Some Math, Java-Pieces)
+- Nick1st (Some Math, Java-Pieces, Image?)
 - SeemdmAx (Python)
