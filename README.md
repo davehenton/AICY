@@ -1,6 +1,6 @@
 # AICY
 
-AICY is a ager which codify your messages with 2048bit RSA-Encoding.
+AICY is a python messager which codify your messages with 2048bit RSA-Encoding.
 ***
 
 AICY is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 (29 June 2007).
