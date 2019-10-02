@@ -1,11 +1,12 @@
 def main():
 
     # Get maximum numbers of prims.
+print("Test")
 
     while true:
         try:
-            #maximum = int(raw_input('Maximum: '))
-            maximum = int(bb)
+            maximum = int(raw_input('Maximum: '))
+            #maximum = int(10)
             print(maximum)
             break
 
