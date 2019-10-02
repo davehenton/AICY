@@ -49,7 +49,7 @@ def TestBiggestDivider(): #Testet zusammen mit der Funktion FoundBiggestDivider 
 
 def DividingTest():     # Greift Primzahlen aus einer Datei namens Output.py ab und wandelt diese um
     global f
-    zahlen = primzahlen.zahl    #Wichtig: Output.py und main.py müssen im gleichen Verzeichnis sein
+    zahlen = Output.zahl    #Wichtig: Output.py und main.py müssen im gleichen Verzeichnis sein
     j = len(zahlen)
     v = 0
     while (v<j):
