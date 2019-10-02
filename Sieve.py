@@ -34,7 +34,14 @@ def main():
             a.append(i)
             print (i, ',')
 
-    print(a)
+    #print(a)
+    with open('C:/Users/nicip/github/AICY/Output.py', 'w') as f:
+        f.write("zahl=[")
+        for item in a:
+            f.write("%s," % item)
+        f.write("1]")
+        f.close()
+        print('done')
     return 0
 
 if __name__ == '__main__':
