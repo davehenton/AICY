@@ -1,13 +1,13 @@
 import random
 import time
-import primzahlen
+import Output
 
-def FoundOddNumber():   #Sucht zufällig eine ungerade 150 stellige Zahl
+def FoundOddNumber():   #Sucht zufällig eine ungerade Zahl.
     global p
     global n
     loop = "true"
     while loop=="true":
-        n = random.randint(100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
+        n = random.randint(10**149, 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
         b = n%2
         if b==1:
             loop="false"
@@ -15,40 +15,41 @@ def FoundOddNumber():   #Sucht zufällig eine ungerade 150 stellige Zahl
     return p            #"p" ist die Variable zum abrufen des Endwerts dieser Funktion
     return n
 
-def FoundSecondNumber(n):   #Sucht sich eine zweite random Nummer die größer als 1 ist und kleiner als "p"(siehe FoundOddNumber)
+def FoundSecondNumber(n):   #Sucht zufällig eine zweite Nummer: > 1; < "p"(siehe FoundOddNumber)
     global a
     x = n-1
     a = random.randint(2, x)
     return a                #"a" ist die Variable zum abrufen des Endwertes dieser Funktion
 
-def FoundBiggestDivider(n, a):      #diese Funktion sucht den größten teiler der Zahlen von "p" und "a"
+def FoundBiggestDivider(n, a):      #diese Funktion sucht den ggT(p;a)
     global o
     loop="true"
     while loop=="true":
         y = n//a        #Ergebniss ohne Rest
-        d = n%a         #Der Rest der Rechnung
+        d = n%a         #Der Rest
         if (d==0):
             o = a
             loop="false"
             break
         else:
             n = a
-            a = d   #"o" ist die Variable, die den letzt verwendeten wert von "a" übernimmt und zur überprüfung an die TestBiggestDivider Funktion schickt
+            a = d   #"o" ist die Variable, die den letzt verwendeten Wert von "a" übernimmt und zur Überprüfung an die TestBiggestDivider Funktion schickt
+    print(o)
     return o
 
-def TestBiggestDivider(): #Teste zusammen mit der Funktion FoundBiggestDivider ob die zahl "p" eine Primzahl ist. Die Erfolgsquote liegt bei ca. 49%
+def TestBiggestDivider(): #Testet zusammen mit der Funktion FoundBiggestDivider ob die zahl "p" eine Primzahl ist.
     loop = "true"
     while (loop=="true"):
         FoundOddNumber()
         FoundSecondNumber(n)
-        FoundBiggestDivider(n, a)  #Die Variable "p" hat nun eine 49% Chance, dass sie eine Primzahl ist
+        FoundBiggestDivider(n, a)  #"p" prim möglich
         if (o==1):
             loop = "false"
             break
 
-def DividingTest():     # Greift Primzahlen aus einer datei namens primzahle.py ab und wandelt diese um
+def DividingTest():     # Greift Primzahlen aus einer Datei namens Output.py ab und wandelt diese um
     global f
-    zahlen = primzahlen.zahl    #wichtig: Primzahlen.py und main.py müssen im gleichen Verzeichnis sein
+    zahlen = primzahlen.zahl    #Wichtig: Output.py und main.py müssen im gleichen Verzeichnis sein
     j = len(zahlen)
     v = 0
     while (v<j):
@@ -62,7 +63,7 @@ def DividingTest():     # Greift Primzahlen aus einer datei namens primzahle.py 
         v = v + 1
     return f
 
-def ReTest8(p):         # Führt die ersten Test 8 mal durch um eine höhren wahrschenlichkeit, dass das ergebnis eine primzahl ist
+def ReTest8(p):         # Führt die ersten Tests 8 mal durch um eine höhren Wahrschenlichkeit, dass p prim ist zu erhöhen.
     global g
     c = p
     v = 0
@@ -75,7 +76,7 @@ def ReTest8(p):         # Führt die ersten Test 8 mal durch um eine höhren wah
             d = c%k
             if (d==0):
                 e = k
-                loop="false"        #Sucht eine random zahl und testet diese durch wie bei den obigen Tests
+                loop="false"        #Sucht eine zufällige zahl und testet diese durch wie bei den obigen Tests
                 break
             else:
                 c = k
@@ -91,7 +92,7 @@ def ReTest8(p):         # Führt die ersten Test 8 mal durch um eine höhren wah
     return g
 
 
-def PrimTest():     #Diese ist die Hauptschleife des Primzahlentests
+def PrimTest():     #Dies ist die Hauptschleife des Primzahlentests
     loop = "true"
     while (loop=="true"):
         TestBiggestDivider()
