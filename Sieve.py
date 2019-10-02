@@ -4,8 +4,10 @@ def main():
 
     while true:
         try:
-            maximum = int(raw_input('Maximum: '))
+            #maximum = int(raw_input('Maximum: '))
+            maximum = int(bb)
+            print(maximum)
             break
 
         except ValueError:
-            print 'Not allowed! Use an Integer as Input!'
+            print("Not allowed! Use an Integer as Input!")
