@@ -1,6 +1,5 @@
-from random_int_gen import GenRandom
-from v_big_numbers import prim_gen_min as pgmi, prim_gen_max as pgma
+from test_random_number_odd import gen_n
 
-random_number_n = GenRandom(pgmi,pgma)
+random_number_n = gen_n()
 
 print(random_number_n)
