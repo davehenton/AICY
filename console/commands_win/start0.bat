@@ -8,17 +8,22 @@ set "mmodi= "
 set "mmmodi= "
 set /p getCommand=">> "
 set t=%getCommand%
-if not defined getCommand goto :start
+if defined getCommand if not "%getCommand: =%"=="" goto valid
+echo variable is either undefined or contains only spaces
+goto :start
 
-:loop
+:valid
+
+:loop1
 for /f "tokens=1*" %%a in ("%t%") do (
-    ::echo %%a
+    echo %%a
     set t=%%b
     set tmp=%%a
 )
 if not defined command goto :setCommand
 :weiter
-if defined t goto :loop
+if defined t goto :loop1
+
 echo(%command%
 
 ::python ..\commands_py\%getFile%.rpy
