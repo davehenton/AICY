@@ -1,11 +1,14 @@
 @echo off
 python ..\commands_py\startup.py
+
 :start
-set "tmp= "
-set "command= "
-set "modi= "
-set "mmodi= "
-set "mmmodi= "
+echo start
+set getCommand=
+set tmp=
+set command=
+set modi=
+set mmodi=
+set mmmodi=
 set /p getCommand=">> "
 set t=%getCommand%
 if defined getCommand if not "%getCommand: =%"=="" goto valid
@@ -21,15 +24,16 @@ for /f "tokens=1*" %%a in ("%t%") do (
     set tmp=%%a
 )
 if not defined command goto :setCommand
+
 :weiter
 if defined t goto :loop1
 
 echo(%command%
 
-::python ..\commands_py\%getFile%.rpy
 ::pause
 goto start
 
 :setCommand
+echo Command
 set command=%tmp%
 goto :weiter
