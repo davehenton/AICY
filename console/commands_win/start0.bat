@@ -2,7 +2,7 @@
 python ..\commands_py\startup.py
 
 :start
-echo start
+rem echo start
 set getCommand=
 set tmp=
 set command=
@@ -12,14 +12,14 @@ set mmmodi=
 set /p getCommand=">> "
 set t=%getCommand%
 if defined getCommand if not "%getCommand: =%"=="" goto valid
-echo variable is either undefined or contains only spaces
+rem echo variable is either undefined or contains only spaces
 goto :start
 
 :valid
 
 :loop1
 for /f "tokens=1*" %%a in ("%t%") do (
-    echo %%a
+    rem echo %%a
     set t=%%b
     set tmp=%%a
 )
@@ -34,6 +34,6 @@ echo(%command%
 goto start
 
 :setCommand
-echo Command
+rem echo Command
 set command=%tmp%
 goto :weiter
