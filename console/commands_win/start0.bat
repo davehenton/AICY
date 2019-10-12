@@ -24,11 +24,17 @@ for /f "tokens=1*" %%a in ("%t%") do (
     set tmp=%%a
 )
 if not defined command goto :setCommand
+if not defined modi goto :setModi
+if not defined mmodi goto :setMmodi
+if not defined mmmodi goto :setMmmodi
 
 :weiter
 if defined t goto :loop1
 
 echo(%command%
+if defined modi echo(%modi%
+if defined mmodi echo(%mmodi%
+if defined mmmodi echo(%mmmodi%
 
 ::pause
 goto start
@@ -36,4 +42,16 @@ goto start
 :setCommand
 rem echo Command
 set command=%tmp%
+goto :weiter
+
+:setModi
+set modi=%tmp%
+goto :weiter
+
+:setMmodi
+set mmodi=%tmp%
+goto :weiter
+
+:setMmmodi
+set mmmodi=%tmp%
 goto :weiter
