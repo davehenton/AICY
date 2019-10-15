@@ -1,6 +1,6 @@
 import sys
 
-def f_help(f,s,t):
+def f_help(f,s=None,t=None):
     #print()
     #print()
     #print(f)
