@@ -1,19 +1,8 @@
-import sys
+import argparse
+tmp = ''
 
-def f_help(f,s=None,t=None):
-    #print()
-    #print()
-    #print(f)
-    #print(s)
-    #print(t)
+parser = argparse.ArgumentParser(prog="help",description='Prints the help.',add_help=True)
+parser.add_argument('-c', '--command', default=argparse.SUPPRESS, choices=['gcd'], help='shows the help for a specific command')
+parser.set_defaults(func=help)
 
-    if not f:
-        print('This is the standart help')
-    else:
-        print('No help')
-
-if __name__ == '__main__':
-    f = str(sys.argv[1])
-    s = str(sys.argv[2])
-    t = str(sys.argv[3])
-    f_help(f,s,t)
+parser.parse_args()

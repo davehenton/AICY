@@ -2,6 +2,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--foo", default=argparse.SUPPRESS)
+parser.add_argument("--testfoo2")
 ns = parser.parse_args()
 
 print("Parsed arguments: {}".format(ns))

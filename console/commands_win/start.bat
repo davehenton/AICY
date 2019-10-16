@@ -37,6 +37,7 @@ if defined mmodi echo(%mmodi%
 if defined mmmodi echo(%mmmodi%
 
 ::pause
+If "%command%" == "exit" exit
 If exist ../commands_py/%command%.py python ../commands_py/%command%.py %modi% %mmodi% %mmmodi%
 If not exist ../commands_py/%command%.py echo Command not found!    For help type 'help'.
 goto start
