@@ -1,3 +1,5 @@
+def help_con(argument_list):
+
 import argparse
 tmp = ''
 
