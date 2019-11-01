@@ -30,6 +30,3 @@ def dividor_test(up_to): #Uses the dividor test. Requires a maximum number.
             loop = False
             print(prime)
             print("Finished")
-
-if __name__ == '__main__':
-    dividor_test(100)
