@@ -18,3 +18,4 @@ def start_console():
                 loop = False
             elif command.is_file():
                 del input_lst[0]
+                
