@@ -1,0 +1,1 @@
+from text_coding_lib.math_lib.basic_math_lib.divisor_module import isOdd
