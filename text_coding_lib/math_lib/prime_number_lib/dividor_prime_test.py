@@ -1,4 +1,4 @@
-def dividor_test(up_to): #Uses the dividor test. Requires a maximum number.
+def dividor_prime_test(up_to): #Uses the dividor test. Requires a maximum number.
     up_to_n = up_to+1
     prime = [2] #Inititalization of the prime number space.
     lenght = len(prime) #Gets object count in prime.
