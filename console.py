@@ -17,5 +17,4 @@ def start_console():
             if input_lst[0] == 'exit':
                 loop = False
             elif command.is_file():
-                del input_lst[0]
-                'input_lst'+_con(input_lst)
+                input_lst[0]+_con(input_lst)
