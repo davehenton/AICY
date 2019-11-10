@@ -1,8 +1,11 @@
 def help_con(argument_list):
+    if not argument_list[1]:
+        print('help')
 
 import argparse
 tmp = ''
 
+"""
 parser = argparse.ArgumentParser(prog="help",description='Prints the help.',add_help=True)
 parser.add_argument('-c', '--command', choices=['gcd','odd'], help='shows the help for a specific command')
 #parser.set_defaults(func=help)
@@ -47,3 +50,4 @@ if args.command == 'odd':
             odd [int]
     '''
     )
+"""

@@ -1,5 +1,5 @@
 from pathlib import Path
-from console import *
+from console_pac.con_help import help_con
 
 def start_console():
     loop = True
@@ -17,4 +17,5 @@ def start_console():
             if input_lst[0] == 'exit':
                 loop = False
             elif command.is_file():
-                #input_lst[0]+_con(input_lst)
+                if input_lst[0] == 'help':
+                    help_con(input_lst)
