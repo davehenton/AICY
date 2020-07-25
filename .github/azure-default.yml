@@ -44,9 +44,9 @@ jobs:
         python.version: '3.7'
       Python38:
         python.version: '3.8'
-- job: 'mac'
+- job: 'windows_latest'
   pool:
-    vmImage: 'macOS-latest'
+    vmImage: 'windows-latest'
   strategy:
     matrix:
       Python27:
@@ -59,6 +59,21 @@ jobs:
         python.version: '3.7'
       Python38:
         python.version: '3.8'
+#- job: 'mac'
+#  pool:
+#    vmImage: 'macOS-latest'
+#  strategy:
+#    matrix:
+#      Python27:
+#        python.version: '2.7'
+#      Python35:
+#        python.version: '3.5'
+#      Python36:
+#        python.version: '3.6'
+#      Python37:
+#        python.version: '3.7'
+#      Python38:
+#        python.version: '3.8'
 
   steps:
   - task: UsePythonVersion@0
