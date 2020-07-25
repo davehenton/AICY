@@ -11,6 +11,7 @@ c = conn.cursor()
 
 #contacts__1_0_pre(c)
 
+# OPTIMIZE: Shorten by changing Syntax; renaming vars
 def checkTableExists(nameIn, column = []) -> bool:
     if (isinstance(nameIn, List)):
         name = nameIn[0]
