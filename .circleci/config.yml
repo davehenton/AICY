@@ -9,10 +9,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup dependencies
           command: |
             sudo composer self-update
             composer install -n --prefer-dist
+          name: Setup dependencies
       - run:
           name: Setup Code Climate test-reporter
           command: |
