@@ -1,25 +1,26 @@
 version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
 jobs:
-  build-and-test:
-    executor: python/default
+  test:
+    docker:
+      - image: fabiogallotti/tutorial_ci
     steps:
       - checkout
-      #- python/load-cache
-      #- python/install-deps
-      #- python/save-cache
       - run:
+         name: Setup Code Climate test-reporter
+         command: |
+          # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+      - run:
+          name: Run tests
           command: |
-            pipenv run python Chat.py test
-            pipenv run python Database.py test
-          name: Test
-      - store_test_results:
-          path: test-results
-
+            python -m pytest --cov-report xml --cov-report term --cov .
+      - run:
+          name: Send coverage to Code Climate
+          command: |
+            ./cc-test-reporter after-build --exit-code $?
 workflows:
-  main:
+  test:
     jobs:
-      - build-and-test
+      - test
