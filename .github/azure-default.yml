@@ -80,6 +80,5 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
 
-  - script: python Test.py
   - script: python Chat.py
   - script: python Database.py
