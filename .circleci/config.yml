@@ -1,19 +1,25 @@
-version: 2.0
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
 jobs:
-  build:
-    environment:
-      CC_TEST_REPORTER_ID: 68d769e695c7dc00d80ba3545abb3952f57c80b124e8368c91fd7879346a84f7
-    docker:
-      - image: "mileschou/xdebug:7.3"
-    working_directory: ~/repo
+  build-and-test:
+    executor: python/default
     steps:
       - checkout
+      #- python/load-cache
+      #- python/install-deps
+      #- python/save-cache
       - run:
           command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-          name: Setup Code Climate test-reporter
-      - run:
-          command: |
-            ./cc-test-reporter before-build
-          name: Run tests
+            pipenv run python Chat.py test
+            pipenv run python Database.py test
+          name: Test
+      - store_test_results:
+          path: test-results
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
