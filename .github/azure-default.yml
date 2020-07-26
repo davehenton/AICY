@@ -4,8 +4,6 @@ jobs:
     vmImage: 'ubuntu-16.04'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -19,8 +17,6 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -34,8 +30,6 @@ jobs:
     vmImage: 'vs2017-win2016'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -49,8 +43,6 @@ jobs:
     vmImage: 'windows-latest'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -64,8 +56,6 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -79,8 +69,6 @@ jobs:
     vmImage: 'macOS-10.14'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -94,6 +82,5 @@ jobs:
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
-
   - script: python Chat.py
   - script: python Database.py
