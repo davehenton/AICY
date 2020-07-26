@@ -1,11 +1,9 @@
 jobs:
-- job: 'ubuntu'
+- job: 'ubuntu_16_04'
   pool:
     vmImage: 'ubuntu-16.04'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -19,8 +17,6 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -29,13 +25,11 @@ jobs:
         python.version: '3.7'
       Python38:
         python.version: '3.8'
-- job: 'windows'
+- job: 'windows_server_2017'
   pool:
     vmImage: 'vs2017-win2016'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -44,13 +38,11 @@ jobs:
         python.version: '3.7'
       Python38:
         python.version: '3.8'
-- job: 'windows_latest'
+- job: 'windows_server_latest'
   pool:
     vmImage: 'windows-latest'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
       Python35:
         python.version: '3.5'
       Python36:
@@ -59,26 +51,36 @@ jobs:
         python.version: '3.7'
       Python38:
         python.version: '3.8'
-#- job: 'mac'
-#  pool:
-#    vmImage: 'macOS-latest'
-#  strategy:
-#    matrix:
-#      Python27:
-#        python.version: '2.7'
-#      Python35:
-#        python.version: '3.5'
-#      Python36:
-#        python.version: '3.6'
-#      Python37:
-#        python.version: '3.7'
-#      Python38:
-#        python.version: '3.8'
+- job: 'macOS_latest'
+  pool:
+    vmImage: 'macOS-latest'
+  strategy:
+    matrix:
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+      Python38:
+        python.version: '3.8'
+- job: 'macOS_10_14'
+  pool:
+    vmImage: 'macOS-10.14'
+  strategy:
+    matrix:
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+      Python38:
+        python.version: '3.8'
 
   steps:
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
-
   - script: python Chat.py
   - script: python Database.py
