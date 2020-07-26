@@ -14,8 +14,9 @@ jobs:
       - run:
           command: |
             pipenv run python Chat.py test
+            pipenv run python Database.py test
           name: Test
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results:
           path: test-results
 
 workflows:
