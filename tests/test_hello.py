@@ -3,13 +3,9 @@
 #def test_hello():
 #    assert "Hello" == hello()
 
-import time
+def func(x):
+    return x + 1
 
-def test_this():
-    try:
-        time.sleep(10)
-    except Exception:
-        pass
 
-def test_that():
-    pass
+def test_answer():
+    assert func(3) == 5
