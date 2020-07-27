@@ -15,3 +15,5 @@ X = isinstance(C, Chat)
 Y = isinstance(I, Chat)
 print(X,Y)
 print(C)
+
+__name__=Chat
