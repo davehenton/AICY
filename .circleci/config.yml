@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-           python -m pytest --cov-report xml --cov-report term --cov=AICY
+           python -m pytest --cov-report xml --cov-report term --cov=test_hello
       - run:
           name: Send coverage to Code Climate
           command: |
