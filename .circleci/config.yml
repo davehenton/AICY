@@ -1,26 +1,14 @@
-version: 2.1
 jobs:
   test:
-    docker:
-      - image: fabiogallotti/tutorial_ci
+    environment:
+      CC_TEST_REPORTER_ID: YOUR_CODE_CLIMATE_REPORTER_ID
+    executor: docker
     steps:
       - checkout
-      - run:
-         name: Setup Code Climate test-reporter
-         command: |
-          # download test reporter as a static binary
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-            ./cc-test-reporter before-build
-      - run:
-          name: Run tests
-          command: |
-            python -m pytest --cov-report xml --cov-report term --cov .
-      - run:
-          name: Send coverage to Code Climate
-          command: |
-            ./cc-test-reporter after-build --exit-code $?
-workflows:
-  test:
-    jobs:
-      - test
+      - codeclimate/with-cc-test-reporter:
+          after_build_args: '--coverage-input-type simplecov'
+          steps:
+            - run: bundle exec rspec
+orbs:
+  codeclimate: sue445/codeclimate@x.y.z
+version: 2.1
