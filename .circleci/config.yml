@@ -15,7 +15,6 @@ jobs:
       - run:
           name: Run tests
           command: |
-           python -m pytest --cov-report xml --cov-report term --cov sample tests/test_sample.py
            python -m pytest --cov-report xml --cov-report term --cov Chat tests/test_chat.py
       - run:
           name: Send coverage to Code Climate
